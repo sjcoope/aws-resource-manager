@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "aws-resource-manager"
+version = "0.1.0"
+description = "A simple and extensible AWS resource manager solution."
+authors = ["Simon Coope <sjcoope@amazon.com>"]
+license = "GNU v3"
+readme = "README.md"
+packages = [{include = "aws_resource_manager"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
