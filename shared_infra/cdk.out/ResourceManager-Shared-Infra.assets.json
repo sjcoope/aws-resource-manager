@@ -1,0 +1,20 @@
+{
+  "version": "18.0.0",
+  "files": {
+    "339b421bd93d85b0fdf9aa4fe366c858a46fe29713ff4e346959af985537a6d0": {
+      "source": {
+        "path": "ResourceManager-Shared-Infra.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "470458405584-ap-southeast-2": {
+          "bucketName": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
+          "objectKey": "339b421bd93d85b0fdf9aa4fe366c858a46fe29713ff4e346959af985537a6d0.json",
+          "region": "ap-southeast-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-file-publishing-role-470458405584-ap-southeast-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

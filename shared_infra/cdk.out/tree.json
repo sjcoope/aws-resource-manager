@@ -1,0 +1,49 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.1"
+        }
+      },
+      "ResourceManager-Shared-Infra": {
+        "id": "ResourceManager-Shared-Infra",
+        "path": "ResourceManager-Shared-Infra",
+        "children": {
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "ResourceManager-Shared-Infra/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "ResourceManager-Shared-Infra/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.23.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.1.1"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.23.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.23.0"
+    }
+  }
+}

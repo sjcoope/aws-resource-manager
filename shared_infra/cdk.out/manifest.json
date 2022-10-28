@@ -1,0 +1,64 @@
+{
+  "version": "18.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "ResourceManager-Shared-Infra.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ResourceManager-Shared-Infra.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ResourceManager-Shared-Infra": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://470458405584/ap-southeast-2",
+      "properties": {
+        "templateFile": "ResourceManager-Shared-Infra.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-deploy-role-470458405584-ap-southeast-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-cfn-exec-role-470458405584-ap-southeast-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-470458405584-ap-southeast-2/339b421bd93d85b0fdf9aa4fe366c858a46fe29713ff4e346959af985537a6d0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ResourceManager-Shared-Infra.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-lookup-role-470458405584-ap-southeast-2",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "ResourceManager-Shared-Infra.assets"
+      ],
+      "metadata": {
+        "/ResourceManager-Shared-Infra/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ResourceManager-Shared-Infra/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ResourceManager-Shared-Infra/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ResourceManager-Shared-Infra"
+    }
+  }
+}
