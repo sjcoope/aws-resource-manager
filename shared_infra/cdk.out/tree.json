@@ -4,18 +4,35 @@
     "id": "App",
     "path": "",
     "children": {
-      "Tree": {
-        "id": "Tree",
-        "path": "Tree",
-        "constructInfo": {
-          "fqn": "constructs.Construct",
-          "version": "10.1.1"
-        }
-      },
       "ResourceManager-Shared-Infra": {
         "id": "ResourceManager-Shared-Infra",
         "path": "ResourceManager-Shared-Infra",
         "children": {
+          "ResourceManagerSweepStarted": {
+            "id": "ResourceManagerSweepStarted",
+            "path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                  "aws:cdk:cloudformation:props": {
+                    "scheduleExpression": "cron(0 18 ? * MON-FRI *)",
+                    "state": "ENABLED"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_events.CfnRule",
+                  "version": "2.53.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_events.Rule",
+              "version": "2.53.0"
+            }
+          },
           "CDKMetadata": {
             "id": "CDKMetadata",
             "path": "ResourceManager-Shared-Infra/CDKMetadata",
@@ -25,25 +42,49 @@
                 "path": "ResourceManager-Shared-Infra/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.23.0"
+                  "version": "2.53.0"
                 }
               }
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.1.1"
+              "version": "10.1.177"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "ResourceManager-Shared-Infra/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.53.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "ResourceManager-Shared-Infra/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.53.0"
             }
           }
         },
         "constructInfo": {
           "fqn": "aws-cdk-lib.Stack",
-          "version": "2.23.0"
+          "version": "2.53.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.1.177"
         }
       }
     },
     "constructInfo": {
       "fqn": "aws-cdk-lib.App",
-      "version": "2.23.0"
+      "version": "2.53.0"
     }
   }
 }

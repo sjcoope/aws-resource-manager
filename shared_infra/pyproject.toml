@@ -1,13 +1,12 @@
 [tool.poetry]
-name = "shared-infra"
+name = "shared_infra"
 version = "0.1.0"
 description = ""
 authors = ["Simon Coope <sjcoope@amazon.com>"]
 readme = "README.md"
-packages = [{include = "shared_infra"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 aws-cdk-lib = "^2.49.0"
 
 

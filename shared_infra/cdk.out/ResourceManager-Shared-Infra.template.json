@@ -1,9 +1,19 @@
 {
  "Resources": {
+  "ResourceManagerSweepStarted802BD902": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "ScheduleExpression": "cron(0 18 ? * MON-FRI *)",
+    "State": "ENABLED"
+   },
+   "Metadata": {
+    "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted/Resource"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzLWM1BMLC/WTU7J1s3JTNKrDi5JTM7WcU7LC0otzi8tSk6t1QmoLMnIz9M31rPUM1fMKs7M1C0qzSvJzE3VC4LQACAc/YRIAAAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzXWM1BMLC/WTU7J1s3JTNKrDi5JTM7WAQrFp5al5pUU61UHleak6jin5YHoWjAjtTi/tCgZyAmoLMnIz9M31jM0BJqTVZyZqVtUmleSmZuqFwShAUKBHapjAAAA"
    },
    "Metadata": {
     "aws:cdk:path": "ResourceManager-Shared-Infra/CDKMetadata/Default"

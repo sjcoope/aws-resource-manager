@@ -1,12 +1,6 @@
 {
-  "version": "18.0.0",
+  "version": "21.0.0",
   "artifacts": {
-    "Tree": {
-      "type": "cdk:tree",
-      "properties": {
-        "file": "tree.json"
-      }
-    },
     "ResourceManager-Shared-Infra.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
@@ -23,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-deploy-role-470458405584-ap-southeast-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-cfn-exec-role-470458405584-ap-southeast-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-470458405584-ap-southeast-2/339b421bd93d85b0fdf9aa4fe366c858a46fe29713ff4e346959af985537a6d0.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-470458405584-ap-southeast-2/e9dd654731db058a3189731e04248bb23dab72817b2fd2be4c469b6b94780890.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -39,6 +33,12 @@
         "ResourceManager-Shared-Infra.assets"
       ],
       "metadata": {
+        "/ResourceManager-Shared-Infra/ResourceManagerSweepStarted/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceManagerSweepStarted802BD902"
+          }
+        ],
         "/ResourceManager-Shared-Infra/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
@@ -59,6 +59,12 @@
         ]
       },
       "displayName": "ResourceManager-Shared-Infra"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
     }
   }
 }
