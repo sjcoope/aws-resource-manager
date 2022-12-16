@@ -3,6 +3,8 @@ import aws_cdk as cdk
 from aws_cdk import (
     aws_events as events,
     aws_lambda as lambda_,
+    aws_lambda_python_alpha as python,
+    aws_events_targets as targets,
     Stack, Duration
 )
 from constructs import Construct
@@ -25,17 +27,17 @@ class ResourceManagerCoreStack(Stack):
                     week_day='MON-FRI',
                     year='*')
             )
-        
-        # Sweep Function
-        #lambdaFn = lambda_.Function(
-        #)
-        # lambdaFn = pyLambda.PythonFunction(self, 
-        #     "ResourceManager-Sweep",
-        #     code=lambda_.Code.from_asset('./sweeper'),
-        #     handler="sweeper.handler",
-        #     timeout=Duration.seconds(300),
-        #     runtime=lambda_.Runtime.PYTHON_3_9,  
-        # )
+
+        lambdaFn = python.PythonFunction(self, 
+                "ResourceManager-Sweep",
+                entry="./sweeper",
+                index="index.py",
+                handler="handler",
+                timeout=Duration.seconds(300),
+                runtime=lambda_.Runtime.PYTHON_3_9
+            )
+
+        rule.add_target(targets.LambdaFunction(lambdaFn))
 
 ResourceManagerCoreStack(app, "ResourceManager-Shared-Infra",
     env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION'))

@@ -4,16 +4,110 @@
    "Type": "AWS::Events::Rule",
    "Properties": {
     "ScheduleExpression": "cron(0 18 ? * MON-FRI *)",
-    "State": "ENABLED"
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Fn::GetAtt": [
+        "ResourceManagerSweep7B0958C9",
+        "Arn"
+       ]
+      },
+      "Id": "Target0"
+     }
+    ]
    },
    "Metadata": {
     "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted/Resource"
    }
   },
+  "ResourceManagerSweepStartedAllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408F3F3113C": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "ResourceManagerSweep7B0958C9",
+      "Arn"
+     ]
+    },
+    "Principal": "events.amazonaws.com",
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "ResourceManagerSweepStarted802BD902",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted/AllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408"
+   }
+  },
+  "ResourceManagerSweepServiceRoleE2A373E6": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/ServiceRole/Resource"
+   }
+  },
+  "ResourceManagerSweep7B0958C9": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
+     "S3Key": "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "ResourceManagerSweepServiceRoleE2A373E6",
+      "Arn"
+     ]
+    },
+    "Handler": "index.handler",
+    "Runtime": "python3.9",
+    "Timeout": 300
+   },
+   "DependsOn": [
+    "ResourceManagerSweepServiceRoleE2A373E6"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Resource",
+    "aws:asset:path": "asset.af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zPSMzXWM1BMLC/WTU7J1s3JTNKrDi5JTM7WAQrFp5al5pUU61UHleak6jin5YHoWjAjtTi/tCgZyAmoLMnIz9M31jM0BJqTVZyZqVtUmleSmZuqFwShAUKBHapjAAAA"
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WOSw7CMAxEz8I+MRTUPR+JNSoHQG4wENomqE5AKOrdcdpKrMbj8bNmDWUJqVjgh7W5Nrq1NaRzQNMoWV0SvckFhlTFltTh5rIOqsWuviIkWZyo7yyz9S7Hx+hMkHlQFjuh/Ez5TPHmgswk73ZZxMM+mobCHlniitjH3pAaU+lwt+4+0nMwqEJj+3ogrBbbufAy61RHv77h4d18chrNv8/klxsoCsGfbK3uowu2I6gm/QFaYPxbCwEAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "ResourceManager-Shared-Infra/CDKMetadata/Default"

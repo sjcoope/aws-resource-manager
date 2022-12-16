@@ -1,7 +1,21 @@
 {
-  "version": "21.0.0",
+  "version": "22.0.0",
   "files": {
-    "e9dd654731db058a3189731e04248bb23dab72817b2fd2be4c469b6b94780890": {
+    "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590": {
+      "source": {
+        "path": "asset.af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "470458405584-ap-southeast-2": {
+          "bucketName": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
+          "objectKey": "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590.zip",
+          "region": "ap-southeast-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-file-publishing-role-470458405584-ap-southeast-2"
+        }
+      }
+    },
+    "20446a03a062c25b79eac2bb767ba8cf77c13b007eba79006b9ea001c00b7532": {
       "source": {
         "path": "ResourceManager-Shared-Infra.template.json",
         "packaging": "file"
@@ -9,7 +23,7 @@
       "destinations": {
         "470458405584-ap-southeast-2": {
           "bucketName": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
-          "objectKey": "e9dd654731db058a3189731e04248bb23dab72817b2fd2be4c469b6b94780890.json",
+          "objectKey": "20446a03a062c25b79eac2bb767ba8cf77c13b007eba79006b9ea001c00b7532.json",
           "region": "ap-southeast-2",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-file-publishing-role-470458405584-ap-southeast-2"
         }

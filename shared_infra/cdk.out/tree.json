@@ -19,18 +19,175 @@
                   "aws:cdk:cloudformation:type": "AWS::Events::Rule",
                   "aws:cdk:cloudformation:props": {
                     "scheduleExpression": "cron(0 18 ? * MON-FRI *)",
-                    "state": "ENABLED"
+                    "state": "ENABLED",
+                    "targets": [
+                      {
+                        "id": "Target0",
+                        "arn": {
+                          "Fn::GetAtt": [
+                            "ResourceManagerSweep7B0958C9",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_events.CfnRule",
-                  "version": "2.53.0"
+                  "version": "2.55.1"
+                }
+              },
+              "AllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408": {
+                "id": "AllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408",
+                "path": "ResourceManager-Shared-Infra/ResourceManagerSweepStarted/AllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                  "aws:cdk:cloudformation:props": {
+                    "action": "lambda:InvokeFunction",
+                    "functionName": {
+                      "Fn::GetAtt": [
+                        "ResourceManagerSweep7B0958C9",
+                        "Arn"
+                      ]
+                    },
+                    "principal": "events.amazonaws.com",
+                    "sourceArn": {
+                      "Fn::GetAtt": [
+                        "ResourceManagerSweepStarted802BD902",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                  "version": "2.55.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_events.Rule",
-              "version": "2.53.0"
+              "version": "2.55.1"
+            }
+          },
+          "ResourceManager-Sweep": {
+            "id": "ResourceManager-Sweep",
+            "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/ServiceRole",
+                "children": {
+                  "ImportServiceRole": {
+                    "id": "ImportServiceRole",
+                    "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/ServiceRole/ImportServiceRole",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.55.1"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.55.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.55.1"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.55.1"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.55.1"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.55.1"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
+                      "s3Key": "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "ResourceManagerSweepServiceRoleE2A373E6",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "index.handler",
+                    "runtime": "python3.9",
+                    "timeout": 300
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.55.1"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda-python-alpha.PythonFunction",
+              "version": "2.55.1-alpha.0"
             }
           },
           "CDKMetadata": {
@@ -42,7 +199,7 @@
                 "path": "ResourceManager-Shared-Infra/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.53.0"
+                  "version": "2.55.1"
                 }
               }
             },
@@ -56,7 +213,7 @@
             "path": "ResourceManager-Shared-Infra/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
-              "version": "2.53.0"
+              "version": "2.55.1"
             }
           },
           "CheckBootstrapVersion": {
@@ -64,13 +221,13 @@
             "path": "ResourceManager-Shared-Infra/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
-              "version": "2.53.0"
+              "version": "2.55.1"
             }
           }
         },
         "constructInfo": {
           "fqn": "aws-cdk-lib.Stack",
-          "version": "2.53.0"
+          "version": "2.55.1"
         }
       },
       "Tree": {
@@ -84,7 +241,7 @@
     },
     "constructInfo": {
       "fqn": "aws-cdk-lib.App",
-      "version": "2.53.0"
+      "version": "2.55.1"
     }
   }
 }

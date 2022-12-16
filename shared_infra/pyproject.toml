@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 aws-cdk-lib = "^2.49.0"
+aws-cdk-aws-lambda-python-alpha = "^2.55.1a0"
 
 
 [build-system]

@@ -1,5 +1,5 @@
 {
-  "version": "21.0.0",
+  "version": "22.0.0",
   "artifacts": {
     "ResourceManager-Shared-Infra.assets": {
       "type": "cdk:asset-manifest",
@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-deploy-role-470458405584-ap-southeast-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::470458405584:role/cdk-hnb659fds-cfn-exec-role-470458405584-ap-southeast-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-470458405584-ap-southeast-2/e9dd654731db058a3189731e04248bb23dab72817b2fd2be4c469b6b94780890.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-470458405584-ap-southeast-2/20446a03a062c25b79eac2bb767ba8cf77c13b007eba79006b9ea001c00b7532.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -37,6 +37,24 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "ResourceManagerSweepStarted802BD902"
+          }
+        ],
+        "/ResourceManager-Shared-Infra/ResourceManagerSweepStarted/AllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceManagerSweepStartedAllowEventRuleResourceManagerSharedInfraResourceManagerSweep47409408F3F3113C"
+          }
+        ],
+        "/ResourceManager-Shared-Infra/ResourceManager-Sweep/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceManagerSweepServiceRoleE2A373E6"
+          }
+        ],
+        "/ResourceManager-Shared-Infra/ResourceManager-Sweep/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ResourceManagerSweep7B0958C9"
           }
         ],
         "/ResourceManager-Shared-Infra/CDKMetadata/Default": [
