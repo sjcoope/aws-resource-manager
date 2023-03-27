@@ -1,3 +1,5 @@
-
 def handler(event, context):
-    print('Hello World!!!')
+  message = 'Hello World!'
+  return {
+    'message': message
+  }

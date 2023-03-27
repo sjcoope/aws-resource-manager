@@ -82,7 +82,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
-     "S3Key": "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590.zip"
+     "S3Key": "012002696ad6a931a1beaed706a92dde4576f928f58f781eb50b2a323d4cdbb7.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -91,23 +91,22 @@
      ]
     },
     "Handler": "index.handler",
-    "Runtime": "python3.9",
-    "Timeout": 300
+    "Runtime": "python3.9"
    },
    "DependsOn": [
     "ResourceManagerSweepServiceRoleE2A373E6"
    ],
    "Metadata": {
     "aws:cdk:path": "ResourceManager-Shared-Infra/ResourceManager-Sweep/Resource",
-    "aws:asset:path": "asset.af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590",
-    "aws:asset:is-bundled": true,
+    "aws:asset:path": "asset.012002696ad6a931a1beaed706a92dde4576f928f58f781eb50b2a323d4cdbb7",
+    "aws:asset:is-bundled": false,
     "aws:asset:property": "Code"
    }
   },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WOSw7CMAxEz8I+MRTUPR+JNSoHQG4wENomqE5AKOrdcdpKrMbj8bNmDWUJqVjgh7W5Nrq1NaRzQNMoWV0SvckFhlTFltTh5rIOqsWuviIkWZyo7yyz9S7Hx+hMkHlQFjuh/Ez5TPHmgswk73ZZxMM+mobCHlniitjH3pAaU+lwt+4+0nMwqEJj+3ogrBbbufAy61RHv77h4d18chrNv8/klxsoCsGfbK3uowu2I6gm/QFaYPxbCwEAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWOUQ6CMBBEz8J/WUXCAcTEb4IHIKWsWKFtwrYa03B3t4hfMzuTt5kTVBUUmXxTroYpn3UP8ealmgRHXcQXWk8Q2zCjuNxt0lXM0vSDhMhBg4vRRNpZcQ1W+WQ4/vtVaGkYdzvuEk5lJ4mQ/56T8A11UBP6WhLXLZILi0KxtTxm1Hbc6L1YRfPxD2cPJRQFHLMnaZ0vwXptENqffgHrbBNE2AAAAA=="
    },
    "Metadata": {
     "aws:cdk:path": "ResourceManager-Shared-Infra/CDKMetadata/Default"

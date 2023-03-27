@@ -166,7 +166,7 @@
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-470458405584-ap-southeast-2",
-                      "s3Key": "af51c1487b327cefd8385903d795cd26c45b017b6dc67d2e73a9786dcf71e590.zip"
+                      "s3Key": "012002696ad6a931a1beaed706a92dde4576f928f58f781eb50b2a323d4cdbb7.zip"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -175,8 +175,7 @@
                       ]
                     },
                     "handler": "index.handler",
-                    "runtime": "python3.9",
-                    "timeout": 300
+                    "runtime": "python3.9"
                   }
                 },
                 "constructInfo": {
@@ -186,8 +185,8 @@
               }
             },
             "constructInfo": {
-              "fqn": "@aws-cdk/aws-lambda-python-alpha.PythonFunction",
-              "version": "2.55.1-alpha.0"
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.55.1"
             }
           },
           "CDKMetadata": {

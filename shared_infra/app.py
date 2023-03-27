@@ -3,12 +3,11 @@ import aws_cdk as cdk
 from aws_cdk import (
     aws_events as events,
     aws_lambda as lambda_,
-    aws_lambda_python_alpha as python,
     aws_events_targets as targets,
     Stack, Duration
 )
 from constructs import Construct
-
+dirname = os.path.dirname(__file__)
 
 app = cdk.App()
 
@@ -28,14 +27,12 @@ class ResourceManagerCoreStack(Stack):
                     year='*')
             )
 
-        lambdaFn = python.PythonFunction(self, 
-                "ResourceManager-Sweep",
-                entry="./sweeper",
-                index="index.py",
-                handler="handler",
-                timeout=Duration.seconds(300),
-                runtime=lambda_.Runtime.PYTHON_3_9
-            )
+        lambdaFn = lambda_.Function(self,
+            "ResourceManager-Sweep",
+            handler="index.handler",
+            code=lambda_.Code.from_asset(os.path.join(dirname, './sweeper')),
+            runtime=lambda_.Runtime.PYTHON_3_9
+        )
 
         rule.add_target(targets.LambdaFunction(lambdaFn))
 

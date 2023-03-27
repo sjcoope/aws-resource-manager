@@ -3,7 +3,23 @@ target:
 	@exit 0
 
 test-local:
-	sam local invoke -t ./shared_infra/cdk.out/ResourceManager-Shared-Infra.template.json
+	cdk synth
+	sam local invoke -t ./cdk.out/ResourceManager-Shared-Infra.template.json
+
+dev-start:
+	poetry shell
+
+dev-end:
+	poetry exit
+
+install:
+	poetry install
+
+build:
+	cdk synth
+
+deploy:
+	cdk deploy
 
 define HELP_MESSAGE
 

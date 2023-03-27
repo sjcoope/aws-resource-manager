@@ -11,6 +11,9 @@ packages = [{include = "aws_resource_manager"}]
 python = "^3.9"
 
 
+[tool.poetry.group.dev.dependencies]
+aws-lambda-powertools = {extras = ["aws-sdk"], version = "^2.5.0"}
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
